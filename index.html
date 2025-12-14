@@ -850,11 +850,14 @@
       <!-- Submit Section -->
       <div class="submit-section">
         <button type="submit" class="submit-button chinese-font">
-          📲 确认订单 Confirm Order via WhatsApp
+          📲 通过whatapps发送订单 Send Order via WhatsApp
         </button>
         <p style="margin-top: 15px; color: #666; font-size: 14px;" class="chinese-font">
-          订单将通过 WhatsApp 发送给我们<br>
-          Your order will be sent to us via WhatsApp
+          即将打开 WhatsApp，请点击「发送」以完成下单。
+          我们将通过 WhatsApp 与您确认订单。<br>
+          You will be redirected to WhatsApp.
+          Please tap “Send” to complete your order.
+          We will confirm your order via WhatsApp.
         </p>
       </div>
     </form>
@@ -1068,13 +1071,13 @@
 
       // Add closing message
       message += `\n`;
-      message += `寄出 WhatsApp 讯息完成下单! ▷▷ 获得味蕾的超级享受 \nദ്ദി(˵ •̀ ᴗ - ˵ ) ✧!\n`;
-      message += `Send this WhatsApp message to place your order and get ready for an amazing taste experience ٩(ˊᗜˋ*)و ♡ !\n`;
+      message += `寄出 WhatsApp 讯息即可完成下单。\n订单确认后将为您准备。\n`;
+      message += `Send this WhatsApp message to place your order.\nYour order will be prepared after confirmation.\n`;
 
       // Add thank you message ONLY for COD orders (PayNow gets it later after payment)
       if (paymentMethod === 'pay-later') {
-        message += `\n謝謝您一直以來的支持～需要任何协助，隨時跟我們說喔！ (ෆ˙ᵕ˙ෆ)♡\n`;
-        message += `Thank you for your continued support. If you need any assistance, please feel free to contact us. Thank you! (ෆ˙ᵕ˙ෆ)♡`;
+        message += `\n如需要协助，欢迎随时透过whatapps联络我们。n`;
+        message += `If you need any assistance, please contact us via WhatsApp.;
       }
       
       // Show friendly message before opening WhatsApp
@@ -1084,9 +1087,6 @@
       console.log('Opening WhatsApp...');
       const whatsappUrl = `https://wa.me/60198802339?text=${encodeURIComponent(message)}`;
       window.location.href = whatsappUrl;
-      
-      // Show success message
-      alert('订单已发送，谢谢您！☺️\nOrder sent via WhatsApp, thank you!☺️\n\n我们将尽快联系您。\nWe will contact you soon.');
       
       // Optionally reset form
       // document.getElementById('orderForm').reset();
