@@ -1027,12 +1027,6 @@
       const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
       const notes = document.getElementById('customerNotes').value.trim();
       
-      // Validate
-      if (!name || !phone || !address) {
-        alert('请填写所有必填项！\nPlease fill in all required fields!');
-        return;
-      }
-      
       // Calculate totals
       const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       const deliveryFee = deliveryMethod === 'delivery' ? 5 : 0;
@@ -1120,7 +1114,7 @@
       // Add thank you message ONLY for COD orders (PayNow gets it later after payment)
       if (paymentMethod === 'pay-later') {
         message += `\n如需要协助，欢迎随时透过whatapps联络我们。\n`;
-        message += `If you need any assistance, please contact us via WhatsApp.\n;
+        message += `If you need any assistance, please contact us via WhatsApp.\n`;
       }
       
       // Show friendly message before opening WhatsApp
