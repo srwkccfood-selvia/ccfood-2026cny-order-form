@@ -869,8 +869,17 @@
             </p>
           </div>
         </div>
-  
-        <div class="summary-table">
+		  
+        <!-- Remarks Display (NEW!) -->
+        <div id="remarksDisplay" style="display: none; margin-bottom: 20px; padding: 15px; background: rgba(255, 255, 255, 0.95); border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.5);">
+          <h4 style="font-size: 16px; color: #f59e0b; margin-bottom: 8px; font-weight: 700;" class="chinese-font">
+            📝 备注 Remarks
+          </h4>
+          <div id="remarksContent" style="color: #666; font-size: 14px; line-height: 1.6; font-style: italic; background: #f9fafb; padding: 10px; border-radius: 4px; border-left: 3px solid #f59e0b;">
+          </div>
+        </div>
+        
+		  <div class="summary-table">
           <div class="summary-row">
             <span class="summary-label chinese-font">小计 Subtotal:</span>
             <span class="summary-value" id="subtotal">RM 0.00</span>
@@ -908,7 +917,7 @@
         WhatsApp: 019-880 2339
       </a>
       <p style="margin-top: 20px; color: #9ca3af;" class="chinese-font">
-        🧧 恭贺新禧 · 馬年大吉 · Happy Chinese New Year 2026 🧧
+        🧧 恭贺新禧 · 馬年大吉 · Happy Lunar New Year 2026 🧧
       </p>
     </div>
   </div>
@@ -1011,13 +1020,31 @@
         itemsContainer.innerHTML = html;
       }
     }
-    
+
+	// NEW FUNCTION: Update remarks display
+	function updateRemarksDisplay() {
+  	  const remarksField = document.getElementById('customerNotes');
+	  const remarksDisplay = document.getElementById('remarksDisplay');
+      const remarksContent = document.getElementById('remarksContent');
+  
+      const remarksText = remarksField.value.trim();
+  
+      if (remarksText.length > 0) {
+        // Show remarks if there's text
+        remarksDisplay.style.display = 'block';
+        remarksContent.textContent = remarksText;
+      } else {
+        // Hide remarks if empty
+        remarksDisplay.style.display = 'none';
+      }
+    }
+
     // Add event listeners to all quantity inputs
     quantityInputs.forEach(input => {
       input.addEventListener('input', calculateTotal);
       input.addEventListener('change', calculateTotal);
     });
-    
+
     // Add event listeners to delivery method radios
     deliveryRadios.forEach(radio => {
       radio.addEventListener('change', calculateTotal);
@@ -1028,7 +1055,7 @@
       radio.addEventListener('change', function() {
         const addressField = document.getElementById('customerAddress');
         const addressRequired = document.getElementById('addressRequired');
-    
+
         if (this.value === 'self') {
           // Self pickup - address optional
           addressField.required = false;
@@ -1042,7 +1069,14 @@
         }
       });
     });
-    
+
+    // Update remarks display when customer types
+    const customerNotesField = document.getElementById('customerNotes');
+    if (customerNotesField) {
+      customerNotesField.addEventListener('input', updateRemarksDisplay);
+      customerNotesField.addEventListener('change', updateRemarksDisplay);
+    }
+
     // Show alert when PayNow is selected
     document.querySelectorAll('input[name="payment"]').forEach(radio => {
       radio.addEventListener('change', function() {
@@ -1220,3 +1254,4 @@
   </script>
 </body>
 </html>
+    
