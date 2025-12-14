@@ -781,29 +781,47 @@
             <input type="text" id="customerName" required>
           </div>
           
-          <div class="form-group">
-            <label class="chinese-font">联络电话 Phone <span class="required">*</span></label>
-            <input type="tel" id="customerPhone" required placeholder="0123456789">
-          </div>
-          
-          <div class="form-group full-width">
-            <label class="chinese-font">送货地址 Delivery Address <span class="required" id="addressRequired">*</span></label>
-            <textarea id="customerAddress" rows="3" required placeholder="请输入送货地址或粘贴共享位置链接。&#10;Please enter the delivery address or paste the shared location URL here."></textarea>
-          </div>
-          
-          <div class="form-group full-width">
-            <label class="chinese-font">取货方式 Delivery Method <span class="required">*</span></label>
-            <div class="radio-group">
-              <label class="radio-option">
-                <input type="radio" name="delivery" value="self" required>
-                <span class="chinese-font">自取 Self Collection</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="delivery" value="delivery" checked>
-                <span class="chinese-font">送货 Door to Door Delivery <strong>(+RM5)</strong></span>
-              </label>
-            </div>
-          </div>
+         <div class="form-group">
+           <label class="chinese-font">联络电话 Phone <span class="required">*</span></label>
+           <input type="tel" id="customerPhone" required placeholder="0123456789">
+         </div>
+
+         <!-- Delivery/Pickup Dates Notice -->
+         <div class="form-group full-width" style="background: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #dc2626; margin-bottom: 20px;">
+           <p style="font-weight: bold; font-size: 15px; margin-bottom: 8px; color: #991b1b;" class="chinese-font">
+             年货出货/取货日期：2/2/2026（一）～16/2/2026（一）
+           </p>
+           <p style="font-size: 14px; color: #666; margin-bottom: 12px;" class="chinese-font">
+             如需提前取货，请在备注栏注明，我们将尽量为您安排，谢谢。
+           </p>
+           <p style="font-weight: bold; font-size: 15px; margin-bottom: 8px; color: #991b1b;" class="chinese-font">
+             Delivery / Pickup Dates for Lunar New Year Goods: 2 Feb 2026 (Mon) – 16 Feb 2026 (Mon)
+           </p>
+           <p style="font-size: 14px; color: #666;" class="chinese-font">
+             If you would like to receive your order earlier, please note it in the remarks section. We will do our best to accommodate your request. Thank you.
+           </p>
+         </div>
+
+         <!-- Delivery Method - NOW COMES BEFORE ADDRESS -->
+         <div class="form-group full-width">
+           <label class="chinese-font">取货方式 Delivery Method <span class="required">*</span></label>
+           <div class="radio-group">
+             <label class="radio-option">
+               <input type="radio" name="delivery" value="self" required>
+               <span class="chinese-font">自取 Self Collection</span>
+             </label>
+             <label class="radio-option">
+               <input type="radio" name="delivery" value="delivery" checked>
+               <span class="chinese-font">送货 Door to Door Delivery <strong>(+RM5)</strong></span>
+             </label>
+           </div>
+         </div>
+
+         <!-- Address - NOW COMES AFTER DELIVERY METHOD -->
+         <div class="form-group full-width">
+           <label class="chinese-font">送货地址 Delivery Address <span class="required" id="addressRequired">*</span></label>
+           <textarea id="customerAddress" rows="3" required placeholder="请输入送货地址或粘贴共享位置链接。&#10;Please enter the delivery address or paste the shared location URL here."></textarea>
+         </div>
           
           <div class="form-group full-width">
             <label class="chinese-font">付款方式 Payment Method <span class="required">*</span></label>
