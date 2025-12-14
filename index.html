@@ -760,15 +760,20 @@
             
             <!-- Ah Cha -->
             <tr>
-              <td rowspan="2" class="product-name chinese-font">南洋泡菜<br>Acar</td>
-              <td class="product-specs">PetBottle 450g</td>
-              <td class="product-price">RM 18.00</td>
-              <td><input type="number" class="quantity-input" data-product="南洋泡菜 Ah Cha" data-size="PetBottle 450g" data-price="18" min="0" value="0"></td>
+              <td rowspan="3" class="product-name chinese-font">南洋泡菜<br>Acar</td>
+              <td class="product-specs">PetBottle 200g</td>
+              <td class="product-price">RM 10.00</td>
+              <td><input type="number" class="quantity-input" data-product="南洋泡菜 Acar" data-size="PetBottle 200g" data-price="10" min="0" value="0"></td>
             </tr>
             <tr>
+              <td class="product-specs">PetBottle 450g</td>
+              <td class="product-price">RM 18.00</td>
+              <td><input type="number" class="quantity-input" data-product="南洋泡菜 Acar" data-size="PetBottle 450g" data-price="18" min="0" value="0"></td>
+            </tr>
+			<tr>
               <td class="product-specs">PetBottle 800g</td>
               <td class="product-price">RM 30.00</td>
-              <td><input type="number" class="quantity-input" data-product="南洋泡菜 Ah Cha" data-size="PetBottle 800g" data-price="30" min="0" value="0"></td>
+              <td><input type="number" class="quantity-input" data-product="南洋泡菜 Acar" data-size="PetBottle 800g" data-price="30" min="0" value="0"></td>
             </tr>
           </tbody>
         </table>
@@ -850,7 +855,7 @@
       
       <!-- Order Summary -->
       <div class="order-summary">
-        <h3 class="chinese-font">订单摘要 Order Summary</h3>
+        <h3 class="chinese-font">这是您的订单>Order Summary</h3>
   
         <!-- Order Items List (NEW!) -->
         <div id="orderItemsList" style="margin-bottom: 20px; padding: 15px; background: rgba(255, 255, 255, 0.95); border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.5);">
@@ -884,7 +889,7 @@
       <!-- Submit Section -->
       <div class="submit-section">
         <button type="submit" class="submit-button chinese-font">
-          📲 通过whatapps发送订单 Send Order via WhatsApp
+          📲 点击这里发送订单给我们 Press Here to Send Your Order
         </button>
         <p style="margin-top: 15px; color: #666; font-size: 14px;" class="chinese-font">
           即将打开 WhatsApp，请点击「发送」以完成下单。
@@ -993,7 +998,7 @@
                   <div style="color: #666; font-size: 13px;">
                     ${item.quantity} × RM${item.price.toFixed(2)}
                   </div>
-                  <div style="font-weight: 700; color: #dc2626; font-size: 15px;">
+                  <div style="font-weight: 700; color: #ca8a04; font-size: 15px;">
                     RM${item.total.toFixed(2)}
                   </div>
                 </div>
@@ -1178,7 +1183,7 @@
       if (deliveryFee > 0) {
         message += `运费 Delivery: RM${deliveryFee.toFixed(2)}\n`;
       }
-      message += `总额 Total: RM${total.toFixed(2)}\n`;
+      message += `您的订单合计 Total: RM${total.toFixed(2)}\n`;
 
       if (notes) {
         message += `\n◉ 备注 Notes: ${notes}`;
@@ -1186,8 +1191,8 @@
 
       // Add closing message
       message += `\n`;
-      message += `寄出 WhatsApp 讯息即可完成下单。\n订单确认后将为您准备。\n`;
-      message += `Send this WhatsApp message to place your order.\nYour order will be prepared after confirmation.\n`;
+      message += `寄出 WhatsApp 讯息即可完成下单。\n订单确认后将为您准备,谢谢您。\n`;
+      message += `Send this WhatsApp message to place your order.\nYour order will be prepared after confirmation.\nThank you.\n`;
 
       // Add thank you message ONLY for COD orders (PayNow gets it later after payment)
       if (paymentMethod === 'pay-later') {
